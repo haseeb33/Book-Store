@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 A program that store this book information:
 Title, Author
@@ -14,6 +13,7 @@ Delete an entry
 Close the program
 """
 from tkinter import *
+from back_end import *
 
 window = Tk(baseName = "Book Store")
 

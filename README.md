@@ -1,22 +1,13 @@
-# Book Store Management PC application
+# Book Store
+Book Store Management tool for PCS.
 
-A program that store  book information:
+1. Add new books (Title, Author, Shelf No., Price, Quantity of Books, Section)
 
-Title, Author, Shelf Number 
+2. Delete a book
 
-Price, Quantity, Section Number
+3. View All the Books info
 
-User can:
+4. Search by(Title, or author, price, quantity, oar location or by any combination)
 
-View all the entries
-
-Search an entry
-
-Insert new entry
-
-Update an entry
-
-Delete an entry
-
-Close the program
+5.Update the book records
 
