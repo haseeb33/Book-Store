@@ -13,8 +13,24 @@ Delete an entry
 Close the program
 """
 from tkinter import *
-from back_end import *
+import intermediate as itmd
 
+def view_command():
+    itmd.view_command()
+
+def search_command():
+    itmd.search_command(title_txt.get(), author_txt.get(), shelf_txt.get(), price_txt.get(), quantity_txt.get(), section_txt.get())
+    
+def insert_command():
+    itmd.insert_command(title_txt.get(), author_txt.get(), shelf_txt.get(), price_txt.get(), quantity_txt.get(), section_txt.get())
+    
+def update_command():
+    itmd.update_command()
+    
+def delete_command():
+    itmd.delete_command()
+
+    
 window = Tk(baseName = "Book Store")
 
 button_width = 15
@@ -70,19 +86,21 @@ scroll.grid(row = 2, column = 4, rowspan = 6, sticky = W+N+S, pady = (5, 10))
 book_list.configure(yscrollcommand = scroll.set)
 scroll.configure(command = book_list.yview)
 
-view_b = Button(window, text = "View All", width = button_width)
+book_list.bind("<<ListboxSelect>>", itmd.get_selected_row)
+
+view_b = Button(window, text = "View All", width = button_width, command = view_command)
 view_b.grid(row = 2, column = 5, pady = (2, 2))
 
-search_b = Button(window, text = "Search", width = button_width)
+search_b = Button(window, text = "Search", width = button_width, command = search_command)
 search_b.grid(row = 3, column = 5, pady = (2, 2))
 
-insert_b = Button(window, text = "Insert New Entry", width = button_width)
+insert_b = Button(window, text = "Insert New Entry", width = button_width, command = insert_command)
 insert_b.grid(row = 4, column = 5, pady = (2, 2))
 
-update_b = Button(window, text = "Update", width = button_width)
+update_b = Button(window, text = "Update", width = button_width, command = update_command)
 update_b.grid(row = 5, column = 5, pady = (2, 2))
 
-delete_b = Button(window, text = "Delete an Entry", width = button_width)
+delete_b = Button(window, text = "Delete an Entry", width = button_width, command = delete_command)
 delete_b.grid(row = 6, column = 5, pady = (2, 2))
 
 close_b  = Button(window, text = "Close Program", width = button_width)

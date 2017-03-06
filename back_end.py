@@ -15,7 +15,7 @@ def create_table():
     con.commit()
     con.close()
     
-def insert(title, author, shelf, price, quantity, section):
+def insert(title="", author="", shelf="", price=0, quantity=0, section=""):
     con = sqlite3.connect("books.db")
     cur = con.cursor()
     cur.execute("INSERT INTO book VALUES(NULL,?,?,?,?,?,?)", (title, author, shelf, price, quantity, section))
