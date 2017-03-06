@@ -32,7 +32,7 @@ def delete_command():
 
     
 window = Tk(baseName = "Book Store")
-
+window.wm_title("Book Store Management")
 button_width = 15
 
 title_l = Label(window, text = "Title")
