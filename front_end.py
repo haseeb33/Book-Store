@@ -25,7 +25,7 @@ def insert_command():
     itmd.insert_command(title_txt.get(), author_txt.get(), shelf_txt.get(), price_txt.get(), quantity_txt.get(), section_txt.get())
     
 def update_command():
-    itmd.update_command()
+    itmd.update_command(title_txt.get(), author_txt.get(), shelf_txt.get(), price_txt.get(), quantity_txt.get(), section_txt.get())
     
 def delete_command():
     itmd.delete_command()

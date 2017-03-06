@@ -11,7 +11,7 @@ import sqlite3
 def create_table():
     con = sqlite3.connect("books.db")
     cur = con.cursor()
-    cur.execute("CREATE TABLE IF NOT EXISTS book (id INTEGER PRIMARY KEY, title TEXT, author TEXT, shelf TEXT, price REAL, quantity INTEGER, section TEXT)")
+    cur.execute("CREATE TABLE IF NOT EXISTS book (id INTEGER PRIMARY KEY, title TEXT, author TEXT, shelf TEXT, price TEXT, quantity TEXT, section TEXT)")
     con.commit()
     con.close()
     
