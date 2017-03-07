@@ -30,6 +30,8 @@ def update_command():
 def delete_command():
     itmd.delete_command()
 
+def close_window(): 
+    window.destroy()
     
 window = Tk(baseName = "Book Store")
 window.wm_title("Book Store Management")
@@ -103,7 +105,7 @@ update_b.grid(row = 5, column = 5, pady = (2, 2))
 delete_b = Button(window, text = "Delete an Entry", width = button_width, command = delete_command)
 delete_b.grid(row = 6, column = 5, pady = (2, 2))
 
-close_b  = Button(window, text = "Close Program", width = button_width)
+close_b  = Button(window, text = "Close Program", width = button_width, command = close_window)
 close_b.grid(row = 7, column = 5, pady = (2, 5))
 
 window.mainloop()

@@ -6,42 +6,41 @@ attaching the functions with buttons
 
 """
 
-import back_end as be
+from back_end import Database
 import front_end as fe
 from tkinter import *
 
-be.create_table()
+db = Database("books.db")
 #When the app starts creating the book table in books.db
-
 
 def view_command():
     fe.book_list.delete(0, END)
     hide_entries()
-    for row in be.view():
+    for row in db.view():
         fe.book_list.insert(END, row)
         
 def search_command(title, author, shelf, price, quantity, section):
     fe.book_list.delete(0, END)
-    for row in be.search(title, author, shelf, price, quantity, section):
+    for row in db.search(title, author, shelf, price, quantity, section):
         fe.book_list.insert(END, row)
 
 def insert_command(title, author, shelf, price, quantity, section):
     fe.book_list.delete(0, END)
     row = (title, author, shelf, price, quantity, section)
-    be.insert(title, author, shelf, price, quantity, section)
+    db.insert(title, author, shelf, price, quantity, section)
     fe.book_list.insert(END, row)
     
 def update_command(title, author, shelf, price, quantity, section):
     fe.book_list.delete(0, END)
     row = (title, author, shelf, price, quantity, section)
-    be.update(selected_tuple[0],title, author, shelf, price, quantity, section)
+    db.update(selected_tuple[0],title, author, shelf, price, quantity, section)
     fe.book_list.insert(END, row)
 
 def delete_command():
     fe.book_list.delete(0, END)
     hide_entries()
-    be.delete(selected_tuple[0])
-    for row in be.view():
+    db.delete(selected_tuple[0])
+    for row in db.view():
         fe.book_list.insert(END, row)
     
 def get_selected_row(event):
@@ -68,16 +67,4 @@ def update_entries():
         fe.quantity_e.insert(END, selected_tuple[4])
         fe.price_e.insert(END, selected_tuple[5])
         fe.section_e.insert(END, selected_tuple[6])
-    except:
-        print("Variable is not defined")
-    else:
-        print("Yaye done")
-    
-    
-    
-
-
-
-    
-    
     
